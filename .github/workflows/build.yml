@@ -1,0 +1,54 @@
+name: Build
+on: [push]
+jobs:
+  build-ubuntu:
+    name: Build (Ubuntu)
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: ./build.sh
+      - name: Test
+        run: ./test.sh
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: |
+            dist/*.zip
+  build-windows:
+    name: Build (Windows)
+    runs-on: windows-2022
+    steps:
+      - name: Configure git
+        run: git config --global core.autocrlf false
+      - uses: actions/checkout@v4
+      - name: Build
+        run: ./build.ps1
+      - name: Test
+        run: ./test.ps1
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: |
+            dist/*.zip
+  release:
+    if: ${{ startsWith(github.event.ref, 'refs/tags/v') }}
+    name: Release
+    permissions:
+      contents: write
+    runs-on: ubuntu-22.04
+    needs:
+      - build-ubuntu
+      - build-windows
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Download artifacts
+        uses: actions/download-artifact@v3
+      - name: Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: artifacts/*.zip
+          token: ${{ secrets.GITHUB_TOKEN }}
