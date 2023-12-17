@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-NODEJS_VERSION='18.18.0'
-PLAYWRIGHT_TEST_VERSION='1.38.1'
+NODEJS_VERSION='20.10.0'
+PLAYWRIGHT_TEST_VERSION='1.40.1'
 
 # prepare.
 mkdir -p tmp
