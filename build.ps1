@@ -13,13 +13,13 @@ trap {
 # see https://nodejs.org/en/
 # see https://github.com/nodejs/node
 # renovate: datasource=node depName=node versioning=node
-$NODEJS_VERSION='20.10.0'
+$NODEJS_VERSION='20.11.1'
 
 # see https://playwright.dev
 # see https://github.com/microsoft/playwright
 # see https://www.npmjs.com/package/@playwright/test
 # renovate: datasource=npm depName=@playwright/test
-$PLAYWRIGHT_TEST_VERSION='1.40.1'
+$PLAYWRIGHT_TEST_VERSION='1.42.1'
 
 # prepare.
 mkdir -Force tmp | Out-Null
