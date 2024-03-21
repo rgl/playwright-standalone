@@ -10,6 +10,9 @@ trap {
     Exit 1
 }
 
+# reset the PATH to ensure we only use our standalone binaries.
+$env:PATH = 'C:\Windows\System32;C:\Windows'
+
 # install.
 Write-Output 'Installing...'
 @('tmp/playwright-standalone') | ForEach-Object {

@@ -42,3 +42,14 @@ List this repository dependencies (and which have newer versions):
 export GITHUB_COM_TOKEN='YOUR_GITHUB_PERSONAL_TOKEN'
 ./renovate.sh
 ```
+
+Build and install the base images from:
+
+* [ubuntu-22.04-amd64](https://github.com/rgl/ubuntu-vagrant)
+* [windows-2022-amd64](https://github.com/rgl/windows-vagrant)
+
+Build and test the binaries in a libvirt virtual machine:
+
+```bash
+vagrant up --no-destroy-on-error --no-tty --provider=libvirt
+```

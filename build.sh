@@ -12,6 +12,15 @@ NODEJS_VERSION='20.11.1'
 # renovate: datasource=npm depName=@playwright/test
 PLAYWRIGHT_TEST_VERSION='1.42.1'
 
+# reset the PATH to ensure we only use our standalone binaries.
+export PATH="$PWD/build/.node/bin:/usr/bin"
+
+# install the zip dependency.
+if ! command -v zip &> /dev/null; then
+    apt-get update
+    apt-get install -y zip
+fi
+
 # prepare.
 mkdir -p tmp
 

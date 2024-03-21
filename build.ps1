@@ -21,6 +21,9 @@ $NODEJS_VERSION='20.11.1'
 # renovate: datasource=npm depName=@playwright/test
 $PLAYWRIGHT_TEST_VERSION='1.42.1'
 
+# reset the PATH to ensure we only use our standalone binaries.
+$env:PATH = "$PWD\build\.node;C:\Windows\System32;C:\Windows"
+
 # prepare.
 mkdir -Force tmp | Out-Null
 
