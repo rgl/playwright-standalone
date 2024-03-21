@@ -31,3 +31,14 @@ Start playing with it:
 .\playwright.cmd cr wikipedia.org
 .\playwright.cmd ff wikipedia.org
 ```
+
+# Develop
+
+See the [build workflow](.github/workflows/build.yml).
+
+List this repository dependencies (and which have newer versions):
+
+```bash
+export GITHUB_COM_TOKEN='YOUR_GITHUB_PERSONAL_TOKEN'
+./renovate.sh
+```

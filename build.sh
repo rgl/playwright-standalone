@@ -1,7 +1,15 @@
 #!/bin/bash
 set -euo pipefail
 
+# see https://nodejs.org
+# see https://github.com/nodejs/node
+# renovate: datasource=node depName=node versioning=node
 NODEJS_VERSION='20.10.0'
+
+# see https://playwright.dev
+# see https://github.com/microsoft/playwright
+# see https://www.npmjs.com/package/@playwright/test
+# renovate: datasource=npm depName=@playwright/test
 PLAYWRIGHT_TEST_VERSION='1.40.1'
 
 # prepare.
