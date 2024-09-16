@@ -5,6 +5,9 @@ ENV['VAGRANT_EXPERIMENTAL'] = 'typed_triggers'
 VM_CPUS = 4
 VM_MEMORY_MB = 4*1024
 VM_OS_DISK_GB = 60
+WINDOWS_PROVISION_ENV = {
+  'WORKING_DIRECTORY' => 'c:/tmp'
+}
 
 require 'open3'
 
@@ -56,7 +59,7 @@ Vagrant.configure(2) do |config|
         smb_username: ENV['VAGRANT_SMB_USERNAME'] || ENV['USER'],
         smb_password: ENV['VAGRANT_SMB_PASSWORD']
     end
-    config.vm.provision :shell, path: 'build.ps1'
-    config.vm.provision :shell, path: 'test.ps1'
+    config.vm.provision :shell, path: 'build.ps1', env: WINDOWS_PROVISION_ENV
+    config.vm.provision :shell, path: 'test.ps1', env: WINDOWS_PROVISION_ENV
   end
 end

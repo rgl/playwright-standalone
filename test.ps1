@@ -10,6 +10,11 @@ trap {
     Exit 1
 }
 
+if (Test-Path env:WORKING_DIRECTORY) {
+    Set-Location $env:WORKING_DIRECTORY
+    [System.IO.Directory]::SetCurrentDirectory($env:WORKING_DIRECTORY)
+}
+
 # reset the PATH to ensure we only use our standalone binaries.
 $env:PATH = 'C:\Windows\System32;C:\Windows'
 

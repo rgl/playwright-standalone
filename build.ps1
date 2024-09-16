@@ -10,6 +10,11 @@ trap {
     Exit 1
 }
 
+if (Test-Path env:WORKING_DIRECTORY) {
+    Set-Location $env:WORKING_DIRECTORY
+    [System.IO.Directory]::SetCurrentDirectory($env:WORKING_DIRECTORY)
+}
+
 # see https://nodejs.org/en/
 # see https://github.com/nodejs/node
 # renovate: datasource=node depName=node versioning=node
