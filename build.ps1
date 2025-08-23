@@ -18,13 +18,13 @@ if (Test-Path env:WORKING_DIRECTORY) {
 # see https://nodejs.org/en/
 # see https://github.com/nodejs/node
 # renovate: datasource=node depName=node versioning=node
-$NODEJS_VERSION='22.16.0'
+$NODEJS_VERSION='22.18.0'
 
 # see https://playwright.dev
 # see https://github.com/microsoft/playwright
 # see https://www.npmjs.com/package/@playwright/test
 # renovate: datasource=npm depName=@playwright/test
-$PLAYWRIGHT_TEST_VERSION='1.52.0'
+$PLAYWRIGHT_TEST_VERSION='1.55.0'
 
 # reset the PATH to ensure we only use our standalone binaries.
 $env:PATH = "$PWD\build\.node;C:\Windows\System32;C:\Windows"
@@ -57,8 +57,8 @@ if ($LASTEXITCODE) {
     throw "failed with exit code $LASTEXITCODE"
 }
 Write-Output "Installing the playwright browsers..."
-# see https://playwright.dev/docs/next/browsers#managing-browser-binaries
-# see https://playwright.dev/docs/next/browsers#hermetic-install
+# see https://playwright.dev/docs/browsers#managing-browser-binaries
+# see https://playwright.dev/docs/browsers#hermetic-install
 $env:PLAYWRIGHT_BROWSERS_PATH='0'
 ./.node/npx.cmd playwright install chromium firefox
 if ($LASTEXITCODE) {

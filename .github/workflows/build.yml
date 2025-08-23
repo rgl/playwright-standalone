@@ -5,7 +5,7 @@ jobs:
     name: Build (Ubuntu)
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build
         run: ./build.sh
       - name: Test
@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Configure git
         run: git config --global core.autocrlf false
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Build
         run: ./build.ps1
       - name: Test
@@ -44,9 +44,9 @@ jobs:
       - build-windows
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Download artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
       - name: Release
         uses: ncipollo/release-action@v1
         with:
