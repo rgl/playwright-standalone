@@ -45,7 +45,7 @@ export GITHUB_COM_TOKEN='YOUR_GITHUB_PERSONAL_TOKEN'
 
 Build and install the base images from:
 
-* [ubuntu-22.04-uefi-amd64](https://github.com/rgl/ubuntu-vagrant)
+* [ubuntu-24.04-uefi-amd64](https://github.com/rgl/ubuntu-vagrant)
 * [windows-2022-uefi-amd64](https://github.com/rgl/windows-vagrant)
 
 Build and test the binaries in a libvirt virtual machine:
