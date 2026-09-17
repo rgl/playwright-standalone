@@ -4,13 +4,13 @@ set -euo pipefail
 # see https://nodejs.org
 # see https://github.com/nodejs/node
 # renovate: datasource=node depName=node versioning=node
-NODEJS_VERSION='24.14.1'
+NODEJS_VERSION='24.21.0'
 
 # see https://playwright.dev
 # see https://github.com/microsoft/playwright
 # see https://www.npmjs.com/package/@playwright/test
 # renovate: datasource=npm depName=@playwright/test
-PLAYWRIGHT_TEST_VERSION='1.59.1'
+PLAYWRIGHT_TEST_VERSION='1.63.0'
 
 # reset the PATH to ensure we only use our standalone binaries.
 export PATH="$PWD/build/.node/bin:/usr/bin"

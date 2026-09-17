@@ -3,9 +3,9 @@ on: [push]
 jobs:
   build-ubuntu:
     name: Build (Ubuntu)
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Build
         run: ./build.sh
       - name: Test
@@ -18,11 +18,11 @@ jobs:
             dist/*.zip
   build-windows:
     name: Build (Windows)
-    runs-on: windows-2022
+    runs-on: windows-2025
     steps:
       - name: Configure git
         run: git config --global core.autocrlf false
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Build
         run: ./build.ps1
       - name: Test
@@ -38,13 +38,13 @@ jobs:
     name: Release
     permissions:
       contents: write
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     needs:
       - build-ubuntu
       - build-windows
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Download artifacts
         uses: actions/download-artifact@v8
       - name: Release
